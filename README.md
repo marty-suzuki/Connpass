@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/Connpass.svg?style=flat)](http://cocoapods.org/pods/Connpass)
 [![Platform](https://img.shields.io/cocoapods/p/Connpass.svg?style=flat)](http://cocoapods.org/pods/Connpass)
 
+[http://connpass.com/about/api/](http://connpass.com/about/api/)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

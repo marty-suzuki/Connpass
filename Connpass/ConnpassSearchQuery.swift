@@ -32,12 +32,12 @@ public struct ConnpassSearchQuery {
         var value: String {
             switch self {
             case .EventId       (let id)       : return "event_id=\(id)"
-            case .Keyword       (let keyword)  : return "keyword=\(keyword)"
-            case .KeywordOr     (let keyword)  : return "keyword_or=\(keyword)"
+            case .Keyword       (let keyword)  : return "keyword=\(keyword.RFC3986Encode)"
+            case .KeywordOr     (let keyword)  : return "keyword_or=\(keyword.RFC3986Encode)"
             case .Ym            (let ym)       : return "ym=\(ym)"
             case .Ymd           (let ymd)      : return "ymd=\(ymd)"
-            case .Nickname      (let nickname) : return "nickname=\(nickname)"
-            case .OwnerNickname (let nickname) : return "owner_nickname=\(nickname)"
+            case .Nickname      (let nickname) : return "nickname=\(nickname.RFC3986Encode)"
+            case .OwnerNickname (let nickname) : return "owner_nickname=\(nickname.RFC3986Encode)"
             case .SeriesId      (let id)       : return "series_id=\(id)"
             case .Start         (let start)    : return "start=\(start)"
             case .Order         (let order)    : return "order=\(order.rawValue)"

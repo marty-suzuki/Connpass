@@ -13,6 +13,7 @@
 		378C80B81D3FE41B0045CFD9 /* ConnpassResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378C80B71D3FE41B0045CFD9 /* ConnpassResult.swift */; };
 		378C80BA1D3FE7600045CFD9 /* ConnpassApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378C80B91D3FE7600045CFD9 /* ConnpassApiClient.swift */; };
 		378C80BC1D3FF8700045CFD9 /* NSDate+ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378C80BB1D3FF8700045CFD9 /* NSDate+ISO8601.swift */; };
+		378C80C21D4015450045CFD9 /* String+RFC3986Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378C80C11D4015450045CFD9 /* String+RFC3986Encode.swift */; };
 		3B513AE1DF7BE4EB12475FEF3C8F7FCD /* Pods-ConnpassSample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 454DA6A85851F9A2D1C5F7F19212C27A /* Pods-ConnpassSample-dummy.m */; };
 		424728C8E121DB3127223554D0C6234C /* ConnpassSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D78B4807CA7B5F76316039B1A990AA /* ConnpassSearchQuery.swift */; };
 		6DDA550E20C258B0AACE946653F10029 /* Pods-ConnpassSample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9494622AACDF9C3BD18BB3D77DE4AC66 /* Pods-ConnpassSample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +40,7 @@
 		378C80B71D3FE41B0045CFD9 /* ConnpassResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnpassResult.swift; sourceTree = "<group>"; };
 		378C80B91D3FE7600045CFD9 /* ConnpassApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnpassApiClient.swift; sourceTree = "<group>"; };
 		378C80BB1D3FF8700045CFD9 /* NSDate+ISO8601.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+ISO8601.swift"; sourceTree = "<group>"; };
+		378C80C11D4015450045CFD9 /* String+RFC3986Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+RFC3986Encode.swift"; sourceTree = "<group>"; };
 		388E00CB3C18C0BFB2EBD3D506301F76 /* Pods-ConnpassSample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConnpassSample-frameworks.sh"; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		454DA6A85851F9A2D1C5F7F19212C27A /* Pods-ConnpassSample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ConnpassSample-dummy.m"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				F3D78B4807CA7B5F76316039B1A990AA /* ConnpassSearchQuery.swift */,
 				378C80B71D3FE41B0045CFD9 /* ConnpassResult.swift */,
 				378C80BB1D3FF8700045CFD9 /* NSDate+ISO8601.swift */,
+				378C80C11D4015450045CFD9 /* String+RFC3986Encode.swift */,
 			);
 			path = Connpass;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				27516C98B332A27052C5F310BCC34D33 /* Connpass-dummy.m in Sources */,
 				378C80B81D3FE41B0045CFD9 /* ConnpassResult.swift in Sources */,
 				378C80BC1D3FF8700045CFD9 /* NSDate+ISO8601.swift in Sources */,
+				378C80C21D4015450045CFD9 /* String+RFC3986Encode.swift in Sources */,
 				424728C8E121DB3127223554D0C6234C /* ConnpassSearchQuery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
