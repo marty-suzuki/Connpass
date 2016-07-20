@@ -1,0 +1,14 @@
+PODS:
+  - Connpass (0.1.0)
+
+DEPENDENCIES:
+  - Connpass (from `../`)
+
+EXTERNAL SOURCES:
+  Connpass:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Connpass: 049dcfb9946199ad838f86b1fe9c5a6f7abf71b0
+
+COCOAPODS: 0.39.0

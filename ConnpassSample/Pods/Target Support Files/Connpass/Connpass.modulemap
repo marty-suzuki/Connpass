@@ -1,0 +1,6 @@
+framework module Connpass {
+  umbrella header "Connpass-umbrella.h"
+
+  export *
+  module * { export * }
+}
