@@ -1,5 +1,5 @@
 //
-//  Connpass.swift
+//  ConnpassSearchQuery.swift
 //  Connpass
 //
 //  Created by Taiki Suzuki on 2016/07/21.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct SearchQuery {
+public struct ConnpassSearchQuery {
     public enum Parameter {
         public enum DisplayOrder: Int {
             case UpdateTime = 1
