@@ -9,6 +9,13 @@
 import Foundation
 
 public struct ConnpassResult {
+    private struct JsonKey {
+        static let resultsReturned = "results_returned"
+        static let resultsAvailable  = "results_available"
+        static let resultsStart = "results_start"
+        static let events = "events"
+    }
+    
     public let resultsReturned: Int
     public let resultsAvailable: Int
     public let resultsStart: Int
@@ -16,10 +23,10 @@ public struct ConnpassResult {
     
     init?(_ dictionary: [String : NSObject]) {
         guard
-            let resultsReturned = dictionary["results_returned"] as? Int,
-            let resultsAvailable = dictionary["results_available"] as? Int,
-            let resultsStart = dictionary["results_start"] as? Int,
-            let rawEvents = dictionary["events"] as? [[String : NSObject]]
+            let resultsReturned = dictionary[JsonKey.resultsReturned] as? Int,
+            let resultsAvailable = dictionary[JsonKey.resultsAvailable] as? Int,
+            let resultsStart = dictionary[JsonKey.resultsStart] as? Int,
+            let rawEvents = dictionary[JsonKey.events] as? [[String : NSObject]]
         else {
             return nil
         }
@@ -31,6 +38,30 @@ public struct ConnpassResult {
 }
 
 public struct ConnpassEvent {
+    private struct JsonKey {
+        static let eventId = "event_id"
+        static let title = "title"
+        static let `catch` = "catch"
+        static let `description` = "description"
+        static let eventUrl = "event_url"
+        static let hashTag = "hash_tag"
+        static let startedAt = "started_at"
+        static let endedAt = "ended_at"
+        static let eventType = "event_type"
+        static let ownerId = "owner_id"
+        static let ownerNickname = "owner_nickname"
+        static let ownerDisplayName = "owner_display_name"
+        static let accepted = "accepted"
+        static let waiting = "waiting"
+        static let updatedAt = "updated_at"
+        static let limit = "limit"
+        static let series = "series"
+        static let address = "address"
+        static let place = "place"
+        static let lat = "lat"
+        static let lon = "lon"
+    }
+    
     public enum EventType: String {
         case Participation = "participation"
         case Advertisement = "advertisement"
@@ -60,25 +91,25 @@ public struct ConnpassEvent {
     
     init?(_ dictionary: [String : NSObject]) {
         guard
-            let eventId = dictionary["event_id"] as? Int,
-            let title = dictionary["title"] as? String,
-            let `catch` = dictionary["catch"] as? String,
-            let `descriotion` = dictionary["description"] as? String,
-            let rawEventUrl = dictionary["event_url"] as? String,
+            let eventId = dictionary[JsonKey.eventId] as? Int,
+            let title = dictionary[JsonKey.title] as? String,
+            let `catch` = dictionary[JsonKey.`catch`] as? String,
+            let `descriotion` = dictionary[JsonKey.`description`] as? String,
+            let rawEventUrl = dictionary[JsonKey.eventUrl] as? String,
             let eventUrl = NSURL(string: rawEventUrl),
-            let hashTag = dictionary["hash_tag"] as? String,
-            let rawStartedAt = dictionary["started_at"] as? String,
+            let hashTag = dictionary[JsonKey.hashTag] as? String,
+            let rawStartedAt = dictionary[JsonKey.startedAt] as? String,
             let startedAt = NSDate.dateFromISO8601String(rawStartedAt),
-            let rawEndAt = dictionary["ended_at"] as? String,
+            let rawEndAt = dictionary[JsonKey.endedAt] as? String,
             let endAt = NSDate.dateFromISO8601String(rawEndAt),
-            let rawEventType = dictionary["event_type"] as? String,
+            let rawEventType = dictionary[JsonKey.eventType] as? String,
             let eventType = EventType(rawValue: rawEventType),
-            let ownerId = dictionary["owner_id"] as? Int,
-            let ownerNickname = dictionary["owner_nickname"] as? String,
-            let ownerDisplayname = dictionary["owner_display_name"] as? String,
-            let accepted = dictionary["accepted"] as? Int,
-            let waiting = dictionary["waiting"] as? Int,
-            let rawUpdatedAt = dictionary["updated_at"] as? String,
+            let ownerId = dictionary[JsonKey.ownerId] as? Int,
+            let ownerNickname = dictionary[JsonKey.ownerNickname] as? String,
+            let ownerDisplayname = dictionary[JsonKey.ownerDisplayName] as? String,
+            let accepted = dictionary[JsonKey.accepted] as? Int,
+            let waiting = dictionary[JsonKey.waiting] as? Int,
+            let rawUpdatedAt = dictionary[JsonKey.updatedAt] as? String,
             let updatedAt = NSDate.dateFromISO8601String(rawUpdatedAt)
         else {
             return nil
@@ -92,13 +123,13 @@ public struct ConnpassEvent {
         self.hashTag = hashTag
         self.startedAt = startedAt
         self.endAt = endAt
-        self.limit = dictionary["limit"] as? Int
+        self.limit = dictionary[JsonKey.limit] as? Int
         self.eventType = eventType
-        self.series = ConnpassSeries(dictionary["series"] as? [String : NSObject] ?? [:])
-        self.address = dictionary["address"] as? String
-        self.place = dictionary["place"] as? String
-        self.lat = dictionary["lat"] as? Double
-        self.lon = dictionary["lon"] as? Double
+        self.series = ConnpassSeries(dictionary[JsonKey.series] as? [String : NSObject] ?? [:])
+        self.address = dictionary[JsonKey.address] as? String
+        self.place = dictionary[JsonKey.place] as? String
+        self.lat = dictionary[JsonKey.lat] as? Double
+        self.lon = dictionary[JsonKey.lon] as? Double
         self.ownerId = ownerId
         self.ownerNickname = ownerNickname
         self.ownerDisplayname = ownerDisplayname
@@ -109,15 +140,21 @@ public struct ConnpassEvent {
 }
 
 public struct ConnpassSeries {
+    private struct JsonKey {
+        static let url = "url"
+        static let id = "id"
+        static let title = "title"
+    }
+    
     public let url: String
     public let id: Int
     public let title: String
     
     init?(_ dictionary: [String : NSObject]) {
         guard
-            let url = dictionary["url"] as? String,
-            let id = dictionary["id"] as? Int,
-            let title = dictionary["title"] as? String
+            let url = dictionary[JsonKey.url] as? String,
+            let id = dictionary[JsonKey.id] as? Int,
+            let title = dictionary[JsonKey.title] as? String
         else {
             return nil
         }

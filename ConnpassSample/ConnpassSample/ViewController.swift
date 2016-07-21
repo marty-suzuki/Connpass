@@ -70,7 +70,6 @@ class ViewController: UIViewController {
             switch $0.result {
             case .Success(let result):
                 dispatch_async(dispatch_get_main_queue()) {
-                    print(result.events.description)
                     guard let resultVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ResultViewController") as? ResultViewController else {
                         return
                     }

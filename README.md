@@ -25,6 +25,8 @@ ConnpassApiClient.sharedClient.searchEvent(query) { response in
 
 ## Parameters
 
+Associated value
+
 |ConnpassSearchQuery.Parameter| Type       |
 |:---------------------------:|:----------:|
 |.EventId                     |Int         |

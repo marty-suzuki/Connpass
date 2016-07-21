@@ -41,7 +41,7 @@ public struct ConnpassSearchQuery {
             case .SeriesId      (let id)       : return "series_id=\(id)"
             case .Start         (let start)    : return "start=\(start)"
             case .Order         (let order)    : return "order=\(order.rawValue)"
-            case .Count         (let count)    : return "count=\(count)"
+            case .Count         (let count)    : return "count=\(max(1 ,min(100, count)))"
             case .Format                       : return "format=json"
             }
         }
