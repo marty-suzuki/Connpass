@@ -25,7 +25,7 @@ ConnpassApiClient.sharedClient.searchEvent(query) { response in
 
 ## Parameters
 
-Associated value
+You can use Associated values as parameter with `ConnpassSearchQuery`.
 
 |ConnpassSearchQuery.Parameter| Type       |
 |:---------------------------:|:----------:|
@@ -48,6 +48,8 @@ Associated value
 |.New        |
 
 ## Result
+
+You can fetch the result as `ConnpassResult`.
 
 ```swift
 public struct ConnpassResult {
