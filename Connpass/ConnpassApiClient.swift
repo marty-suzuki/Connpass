@@ -9,9 +9,17 @@
 import Foundation
 
 public class ConnpassApiClient {
-    public enum Result {
-        case Success(ConnpassResult)
-        case Failure(NSError)
+    public struct Response {
+        public enum Result {
+            case Success(ConnpassResult)
+            case Failure(NSError)
+        }
+        public let result: Result
+        public let response: NSURLResponse?
+    }
+    
+    private struct Const {
+        static let APIPath = "https://connpass.com/api/v1/event/"
     }
     
     public static let sharedClient = ConnpassApiClient()
@@ -19,23 +27,27 @@ public class ConnpassApiClient {
     private let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
     private init() {}
     
-    public func searchEvent(query: ConnpassSearchQuery, completion: (Result -> Void)?) {
-        searchEvent(query, success: { completion?(.Success($0)) }) { completion?(.Failure($0)) }
+    public func searchEvent(query: ConnpassSearchQuery, completion: (Response -> Void)?) {
+        searchEvent(query, success: {
+            completion?(Response(result: .Success($1), response: $0))
+        }) {
+            completion?(Response(result: .Failure($1), response: $0))
+        }
     }
     
-    public func searchEvent(query: ConnpassSearchQuery, success: (ConnpassResult -> Void)?, failure: (NSError -> Void)?) {
-        let urlString = "https://connpass.com/api/v1/event/?" + query.value
+    public func searchEvent(query: ConnpassSearchQuery, success: ((NSURLResponse?, ConnpassResult) -> Void)?, failure: ((NSURLResponse?, NSError) -> Void)?) {
+        let urlString = Const.APIPath + "?" + query.value
         guard let url = NSURL(string: urlString) else {
-            failure?(NSError(domain: "Invalidate URL", code: -9999, userInfo: nil))
+            failure?(nil, NSError(domain: .InvalidateURL))
             return
         }
-        session.dataTaskWithURL(url) { data, response, error in
-            if let error = error {
-                failure?(error)
+        session.dataTaskWithURL(url) {
+            if let error = $2 {
+                failure?($1, error)
                 return
             }
-            guard let data = data else {
-                failure?(NSError(domain: "Invalidate data", code: -9999, userInfo: nil))
+            guard let data = $0 else {
+                failure?($1, NSError(domain: .InvalidateData))
                 return
             }
             do {
@@ -43,13 +55,13 @@ public class ConnpassApiClient {
                     let dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [String : NSObject],
                     let result = ConnpassResult(dictionary)
                 else {
-                    failure?(NSError(domain: "Invalidate dictionary", code: -9999, userInfo: nil))
+                    failure?($1, NSError(domain: .InvalidateDictionary))
                     return
                 }
-                success?(result)
+                success?($1, result)
                 return
             } catch let e as NSError {
-                failure?(e)
+                failure?($1, e)
                 return
             }
         }.resume()

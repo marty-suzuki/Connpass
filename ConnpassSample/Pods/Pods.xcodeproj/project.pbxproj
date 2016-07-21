@@ -17,6 +17,7 @@
 		3B513AE1DF7BE4EB12475FEF3C8F7FCD /* Pods-ConnpassSample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 454DA6A85851F9A2D1C5F7F19212C27A /* Pods-ConnpassSample-dummy.m */; };
 		424728C8E121DB3127223554D0C6234C /* ConnpassSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D78B4807CA7B5F76316039B1A990AA /* ConnpassSearchQuery.swift */; };
 		6DDA550E20C258B0AACE946653F10029 /* Pods-ConnpassSample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9494622AACDF9C3BD18BB3D77DE4AC66 /* Pods-ConnpassSample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D55C9E61D406CF60079A997 /* NSError+Connpass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55C9E51D406CF60079A997 /* NSError+Connpass.swift */; };
 		C927DB72039CCA4BC2FB39166BBB6646 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		8566478EE2682F3205294E137BD12F4B /* Pods-ConnpassSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConnpassSample.release.xcconfig"; sourceTree = "<group>"; };
 		90BFAF13C523B8B420A70A4A4ADC9966 /* Connpass.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Connpass.xcconfig; sourceTree = "<group>"; };
 		9494622AACDF9C3BD18BB3D77DE4AC66 /* Pods-ConnpassSample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConnpassSample-umbrella.h"; sourceTree = "<group>"; };
+		9D55C9E51D406CF60079A997 /* NSError+Connpass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSError+Connpass.swift"; sourceTree = "<group>"; };
 		9E3F8965AF4123E6A49BC1FBD86DC6CB /* Connpass-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Connpass-prefix.pch"; sourceTree = "<group>"; };
 		B89314D83190EE6C861BB40035C07849 /* Pods-ConnpassSample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ConnpassSample.modulemap"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -126,6 +128,7 @@
 				378C80B71D3FE41B0045CFD9 /* ConnpassResult.swift */,
 				378C80BB1D3FF8700045CFD9 /* NSDate+ISO8601.swift */,
 				378C80C11D4015450045CFD9 /* String+RFC3986Encode.swift */,
+				9D55C9E51D406CF60079A997 /* NSError+Connpass.swift */,
 			);
 			path = Connpass;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				378C80BA1D3FE7600045CFD9 /* ConnpassApiClient.swift in Sources */,
+				9D55C9E61D406CF60079A997 /* NSError+Connpass.swift in Sources */,
 				27516C98B332A27052C5F310BCC34D33 /* Connpass-dummy.m in Sources */,
 				378C80B81D3FE41B0045CFD9 /* ConnpassResult.swift in Sources */,
 				378C80BC1D3FF8700045CFD9 /* NSDate+ISO8601.swift in Sources */,

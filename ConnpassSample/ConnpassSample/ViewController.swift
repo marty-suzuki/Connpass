@@ -62,12 +62,21 @@ class ViewController: UIViewController {
     }
     
     private func search() {
-        view.becomeFirstResponder()
+        tableView.visibleCells.flatMap { $0 as? SearchTableViewCell }.forEach {
+            $0.textField.resignFirstResponder()
+        }
         let query = ConnpassSearchQuery(parameters.enumerate().flatMap { toParameter($0.index, element: $0.element) })
-        ConnpassApiClient.sharedClient.searchEvent(query) {
-            switch $0 {
+        ConnpassApiClient.sharedClient.searchEvent(query) { [weak self] in
+            switch $0.result {
             case .Success(let result):
-                print(result.events)
+                dispatch_async(dispatch_get_main_queue()) {
+                    print(result.events.description)
+                    guard let resultVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ResultViewController") as? ResultViewController else {
+                        return
+                    }
+                    resultVC.events = result.events
+                    self?.navigationController?.pushViewController(resultVC, animated: true)
+                }
             case .Failure(let error):
                 print(error)
             }
