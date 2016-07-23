@@ -19,12 +19,15 @@ public class ConnpassApiClient {
     }
     
     private struct Const {
-        static let APIPath = "https://connpass.com/api/v1/event/"
+        static let HttpAPIPath = "http://connpass.com/api/v1/event/"
+        static let HttpsAPIPath = "https://connpass.com/api/v1/event/"
     }
     
     public static let sharedClient = ConnpassApiClient()
     
     private let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+    public var useHttps: Bool = false
+    
     private init() {}
     
     public func searchEvent(query: ConnpassSearchQuery, completion: (Response -> Void)?) {
@@ -36,7 +39,8 @@ public class ConnpassApiClient {
     }
     
     public func searchEvent(query: ConnpassSearchQuery, success: ((NSURLResponse?, ConnpassResult) -> Void)?, failure: ((NSURLResponse?, NSError) -> Void)?) {
-        let urlString = Const.APIPath + "?" + query.value
+        let path = useHttps ? Const.HttpsAPIPath : Const.HttpAPIPath
+        let urlString = path + "?" + query.value
         guard let url = NSURL(string: urlString) else {
             failure?(nil, NSError(domain: .InvalidateURL))
             return

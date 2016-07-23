@@ -106,6 +106,14 @@ public func searchEvent(query: ConnpassSearchQuery, completion: (Response -> Voi
 public func searchEvent(query: ConnpassSearchQuery, success: ((NSURLResponse?, ConnpassResult) -> Void)?, failure: ((NSURLResponse?, NSError) -> Void)?)
 ```
 
+## Https usage
+
+This client uses http. If you want to use https, change this property.
+
+```swift
+ConnpassApiClient.sharedClient.useHttps = true
+```
+
 ## Installation
 
 Connpass is available through [CocoaPods](http://cocoapods.org). To install

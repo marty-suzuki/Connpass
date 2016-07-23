@@ -66,7 +66,9 @@ class ViewController: UIViewController {
             $0.textField.resignFirstResponder()
         }
         let query = ConnpassSearchQuery(parameters.enumerate().flatMap { toParameter($0.index, element: $0.element) })
-        ConnpassApiClient.sharedClient.searchEvent(query) { [weak self] in
+        let client = ConnpassApiClient.sharedClient
+        client.useHttps = true
+        client.searchEvent(query) { [weak self] in
             switch $0.result {
             case .Success(let result):
                 dispatch_async(dispatch_get_main_queue()) {
